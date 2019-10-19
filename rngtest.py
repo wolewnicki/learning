@@ -28,10 +28,12 @@ def start():
 
 def win(condition):
     print(f"Congratulations! You won because, {condition}! Good job!")
+    input() #this is so if you run it in CMD it stays open
     exit(0)
 
 def lose(lost):
     print(f"Somehow you lost this easy game because {lost}")
+    input() #this is so if you run it in CMD it stays open
     exit(0)
 
 def game1():
