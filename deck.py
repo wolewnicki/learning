@@ -23,7 +23,7 @@ class Deck:
 
     def show(self):
         for card in self.contents:
-            print(card.show())
+            card.show()
     
     def build(self):
         self.contents = []
@@ -32,12 +32,10 @@ class Deck:
                 self.contents.append(Card(rank, suit))
                 
     def shuffle(self):
-        for i in range(0, 53-1):
+        for i in range(52 - 1, 0, -1):
             j = random.randint(1, i + 1)
             self.contents[j], self.contents[i] = self.contents[i], self.contents[j]
 
-#card = Card('6', 'Diamonds')
-#card.show()
 deck = Deck()
 deck.shuffle()
 deck.show()
