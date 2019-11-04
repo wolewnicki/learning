@@ -27,14 +27,26 @@ class Deck:
     
     def build(self):
         self.contents = []
-        for suit in ['Hearts', 'Clubs', 'Diamonds', 'Spades']:
-            for rank in range(1,14):
+        for suit in suits:
+            for rank in ranks:
                 self.contents.append(Card(rank, suit))
                 
     def shuffle(self):
-        for i in range(52 - 1, 0, -1):
-            j = random.randint(1, i + 1)
+        for i in range(0, 52):
+            j = random.randint(0, i + 1)
             self.contents[j], self.contents[i] = self.contents[i], self.contents[j]
+    
+class Player:
+    def __init__(self, name):
+        self.name = name
+        self.hand = []
+        
+suits = ['Hearts', 'Clubs', 'Diamonds', 'Spades']        
+ranks = list(range(1,14))        
+rankValues = {1 : 11,
+              11 : 10,
+              12 : 10,
+              13 : 10}        
 
 deck = Deck()
 deck.shuffle()
